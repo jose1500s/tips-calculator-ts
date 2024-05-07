@@ -33,21 +33,28 @@ function App() {
         </section>
 
         <section className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
-          <OrderContents
-            order={order}
-            removeItem={removeItem}
-          />
+          {order.length > 0 ? (
+            <>
+              <OrderContents
+                order={order}
+                removeItem={removeItem}
+              />
 
-          <TipPercentaje 
-            setTip={setTip}
-            tip={tip}
-          />
+              <TipPercentaje
+                setTip={setTip}
+                tip={tip}
+              />
 
-          <OrderTotals 
-            order={order}
-            tip={tip}
-            placeOrder={placeOrder}
-          />
+              <OrderTotals
+                order={order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
+            </>
+          ) :
+            <p>La orden esta vacia</p>
+          }
+
         </section>
 
       </main>
